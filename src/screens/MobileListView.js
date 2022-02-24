@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Footer, MobilelistCard, Navbar, MobileBrandsNames } from "components";
 import { useNavigate } from "react-router";
 import { RightSideMenu, LeftSideMenu } from "megaComponents";
@@ -60,12 +60,18 @@ const mobilelistData = [
   },
 ];
 const MobileListView = () => {
+  const [open, setOpen] = useState(false);
   let navigate = useNavigate();
+
   return (
     <React.Fragment>
       <Navbar />
       <div className="mainContent mt-20 flex flex-col lg:flex-row lg:px-5">
-        <div className="lg:w-[20%] order-2 px-5 lg:px-0">
+        <div
+          className={`lg:w-[20%] order-2 px-5 lg:px-0 ${
+            open ? "block" : "hidden lg:block"
+          }`}
+        >
           <MobileBrandsNames />
 
           <LeftSideMenu />
@@ -85,7 +91,7 @@ const MobileListView = () => {
           </div>
           <div className="lg:pl-4 lg:pr-4 rounded-md bg-center bg-[#D2DCE7] ">
             <div className="flex-1  p-4 pl-1 pr-1 ">
-              <div className="grid sm:grid-cols-1  md:grid-cols-2  lg:grid-cols-3 gap-2 gap-y-6">
+              <div className="grid grid-cols-2 sm:grid-cols-1  md:grid-cols-2  lg:grid-cols-3 gap-2 gap-y-6">
                 {mobilelistData.map(({ imgsrc, mobilename, price, rating }) => {
                   return (
                     <MobilelistCard
@@ -99,8 +105,23 @@ const MobileListView = () => {
               </div>
             </div>
           </div>
+          <div className="flex justify-center">
+            {/* <button className="w-fit rounded-md p-2 px-6 mt-5 text-white lg:hidden  bg-backgroundGreenColor">
+              Explore More
+            </button> */}
+            <button
+              className="bg-buttonBgColor bg-gradient-to-b text-sm p-2 pl-4 pr-4 text-white mt-5 rounded-md from-buttonBgColorGradian1 to-buttonBgcolorGradian2  shadow-cyan-500/50 shadow-inner"
+              onClick={() => setOpen(!open)}
+            >
+              Explore More
+            </button>
+          </div>
         </div>
-        <div className="lg:w-[20%] px-5 lg:px-0  text-center order-3 lg:order-3">
+        <div
+          className={`lg:w-[20%] px-5 lg:px-0  text-center order-3 lg:order-3 ${
+            open ? "block" : "hidden lg:block"
+          }`}
+        >
           <div className="flex flex-col">
             <button className="w-auto border-2 bg-transparent p-1 mt-5 lg:mt-0  rounded-[1rem]">
               Advance Search

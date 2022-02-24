@@ -5,6 +5,7 @@ module.exports = {
     extend: {},
     colors: {
       ...defaultColors,
+      mainpurpleColor: "#5D71E1",
       customGray: "#EDEDF0",
       backgroundGreenColor: "#07844C",
       buttonBgColorGradian1: "#07844C",
