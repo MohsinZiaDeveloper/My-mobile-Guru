@@ -63,7 +63,7 @@ const Navbar = () => {
         </div>
 
         <div
-          className={`md:flex md:items-center z-50 md:pb-0 flex-col w-full mt-10 lg:mt-20 lg:ml-2 pb-12 absolute bg-backgroundGreenColor md:bg-white md:static bg-red md:z-auto  left-0  md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
+          className={`md:flex md:items-center z-50 md:pb-0 flex-col w-full mt-10 lg:mt-20 lg:ml-2 pb-12 absolute bg-backgroundGreenColor md:bg-white md:static bg-red md:z-auto  left-0  md:w-auto md:pl-0 pl-9 duration-500  ${
             open ? "top-5 " : "top-[-490px]"
           }`}
         >
